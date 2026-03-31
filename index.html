@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detector de Plagio y Analizador de Manuscritos con IA | Ecdotica</title>
+<meta name="description" content="Detecta plagio y analiza manuscritos con inteligencia artificial. Herramientas profesionales para autores, editores y editoriales en espanol. 7 dias de prueba gratis.">
+<meta name="keywords" content="detector de plagio, analisis de manuscritos, IA escritura, plagio espanol, herramientas para escritores">
+<link rel="canonical" href="https://detector.ecdotica.com/">
+<meta property="og:title" content="Detector de Plagio y Analizador de Manuscritos con IA">
+<meta property="og:description" content="Detecta plagio y mejora tu manuscrito con IA. Prueba gratis 7 dias.">
+<meta property="og:url" content="https://detector.ecdotica.com/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{background:#fff;border-bottom:1px solid #e5e7eb;padding:16px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:800;color:#16213e}
+.logo span{color:#0f9b58}
+nav a.cta-nav{background:#0f9b58;color:#fff;padding:10px 24px;border-radius:8px;font-weight:600;font-size:.9rem;transition:background .3s}
+nav a.cta-nav:hover{background:#0d8a4e}
+
+/* Hero */
+.hero{padding:80px 0 60px;text-align:center;background:linear-gradient(135deg,#f0fdf4 0%,#ecfdf5 50%,#f0f9ff 100%)}
+.hero h1{font-size:2.8rem;font-weight:800;line-height:1.15;margin-bottom:20px;color:#16213e}
+.hero h1 span{color:#0f9b58}
+.hero p.subtitle{font-size:1.2rem;color:#4b5563;max-width:640px;margin:0 auto 32px}
+.hero-cta{display:inline-block;background:#0f9b58;color:#fff;padding:16px 40px;border-radius:10px;font-size:1.1rem;font-weight:700;transition:all .3s;box-shadow:0 4px 14px rgba(15,155,88,.3)}
+.hero-cta:hover{background:#0d8a4e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,155,88,.4)}
+.hero-note{margin-top:12px;font-size:.85rem;color:#6b7280}
+
+/* Demo */
+.demo-section{padding:60px 0;background:#fff}
+.demo-section h2{text-align:center;font-size:2rem;font-weight:700;margin-bottom:8px}
+.demo-section p.demo-sub{text-align:center;color:#6b7280;margin-bottom:32px}
+.demo-box{max-width:700px;margin:0 auto;background:#f9fafb;border:2px solid #e5e7eb;border-radius:16px;padding:32px;position:relative}
+.demo-box textarea{width:100%;height:160px;border:1px solid #d1d5db;border-radius:8px;padding:16px;font-size:.95rem;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border .3s}
+.demo-box textarea:focus{border-color:#0f9b58}
+.demo-box .char-count{text-align:right;font-size:.8rem;color:#9ca3af;margin-top:4px}
+.demo-btn{display:block;width:100%;margin-top:16px;background:#0f9b58;color:#fff;border:none;padding:14px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .3s}
+.demo-btn:hover{background:#0d8a4e}
+.demo-btn:disabled{background:#9ca3af;cursor:not-allowed}
+.demo-result{margin-top:20px;padding:20px;background:#fff;border-radius:8px;border:1px solid #e5e7eb;display:none}
+.demo-result.show{display:block}
+.demo-result h4{font-weight:600;margin-bottom:8px}
+.score-bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;margin:8px 0}
+.score-fill{height:100%;border-radius:4px;transition:width 1s ease}
+
+/* Features */
+.features{padding:80px 0;background:#f9fafb}
+.features h2{text-align:center;font-size:2rem;font-weight:700;margin-bottom:48px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.feature-card{background:#fff;border-radius:16px;padding:32px;border:1px solid #e5e7eb;transition:transform .3s,box-shadow .3s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.06)}
+.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+.feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.feature-card p{color:#6b7280;font-size:.95rem}
+
+/* Pricing */
+.pricing{padding:80px 0;background:#fff}
+.pricing h2{text-align:center;font-size:2rem;font-weight:700;margin-bottom:8px}
+.pricing .pricing-sub{text-align:center;color:#6b7280;margin-bottom:48px}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:800px;margin:0 auto}
+.price-card{border-radius:16px;padding:40px 32px;border:2px solid #e5e7eb;position:relative;transition:transform .3s}
+.price-card.popular{border-color:#0f9b58;box-shadow:0 8px 30px rgba(15,155,88,.12)}
+.price-card .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0f9b58;color:#fff;padding:4px 20px;border-radius:20px;font-size:.8rem;font-weight:600}
+.price-card h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.price-card .price{font-size:2.8rem;font-weight:800;color:#16213e;margin:16px 0 4px}
+.price-card .price span{font-size:1rem;font-weight:500;color:#6b7280}
+.price-card .price-bs{font-size:.9rem;color:#6b7280;margin-bottom:16px}
+.price-card ul{list-style:none;margin:20px 0}
+.price-card ul li{padding:6px 0;font-size:.95rem;color:#4b5563}
+.price-card ul li::before{content:'\2713';color:#0f9b58;font-weight:700;margin-right:8px}
+.price-card .price-cta{display:block;text-align:center;padding:14px;border-radius:8px;font-weight:600;font-size:1rem;transition:all .3s}
+.price-card .price-cta.primary{background:#0f9b58;color:#fff}
+.price-card .price-cta.primary:hover{background:#0d8a4e}
+.price-card .price-cta.secondary{background:#f3f4f6;color:#16213e}
+.price-card .price-cta.secondary:hover{background:#e5e7eb}
+.price-card .trial-note{text-align:center;font-size:.8rem;color:#9ca3af;margin-top:8px}
+
+/* Social Proof */
+.social-proof{padding:60px 0;background:#f9fafb}
+.social-proof h2{text-align:center;font-size:1.6rem;font-weight:700;margin-bottom:40px}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.testimonial{background:#fff;border-radius:12px;padding:24px;border:1px solid #e5e7eb}
+.testimonial p{font-size:.95rem;color:#4b5563;font-style:italic;margin-bottom:12px}
+.testimonial .author{font-weight:600;font-size:.85rem;color:#16213e}
+.testimonial .role{font-size:.8rem;color:#9ca3af}
+
+/* FAQ */
+.faq{padding:80px 0;background:#fff}
+.faq h2{text-align:center;font-size:2rem;font-weight:700;margin-bottom:40px}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid #e5e7eb;padding:20px 0}
+.faq-q{font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:1.2rem;color:#9ca3af;transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:#6b7280;font-size:.95rem}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+
+/* Final CTA */
+.final-cta{padding:80px 0;background:linear-gradient(135deg,#16213e,#1a1a2e);text-align:center;color:#fff}
+.final-cta h2{font-size:2.2rem;font-weight:800;margin-bottom:16px}
+.final-cta p{color:#d1d5db;font-size:1.1rem;margin-bottom:32px}
+.final-cta a{display:inline-block;background:#0f9b58;color:#fff;padding:16px 48px;border-radius:10px;font-size:1.1rem;font-weight:700;transition:all .3s}
+.final-cta a:hover{background:#0d8a4e;transform:translateY(-2px)}
+
+/* Footer */
+footer{background:#16213e;color:#9ca3af;padding:40px 0;text-align:center;font-size:.85rem}
+footer a{color:#d1d5db}
+footer a:hover{color:#fff}
+
+/* Responsive */
+@media(max-width:768px){
+.hero h1{font-size:2rem}
+.features-grid{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr}
+.testimonials{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+<div class="container">
+<div class="logo">Ecd<span>o</span>tica</div>
+<a href="https://ecdotica.com/producto/plan-autor-detector-de-plagio-y-analisis-de-manuscritos/" class="cta-nav">Prueba Gratis 7 Dias</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="container">
+<h1>Detecta Plagio y Mejora tu Manuscrito con <span>Inteligencia Artificial</span></h1>
+<p class="subtitle">Herramientas profesionales para autores, editores y editoriales de habla hispana. Verifica la originalidad de tus textos y recibe analisis detallados en minutos.</p>
+<a href="#demo" class="hero-cta">Probar Gratis Ahora</a>
+<p class="hero-note">7 dias de prueba gratis &bull; Sin tarjeta de credito &bull; Cancela cuando quieras</p>
+</div>
+</section>
+
+<!-- Demo Section -->
+<section class="demo-section" id="demo">
+<div class="container">
+<h2>Prueba el Detector Ahora</h2>
+<p class="demo-sub">Pega un fragmento de texto y obtiene un analisis instantaneo. Sin registro.</p>
+<div class="demo-box">
+<textarea id="demoText" placeholder="Pega aqui tu texto para analizar (minimo 100 caracteres)..."></textarea>
+<div class="char-count"><span id="charCount">0</span> / 500 caracteres</div>
+<button class="demo-btn" id="demoBtn" disabled>Analizar Texto</button>
+<div class="demo-result" id="demoResult">
+<h4>Resultado del Analisis</h4>
+<div style="margin-bottom:12px">
+<div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Originalidad</span><span id="origScore">--</span></div>
+<div class="score-bar"><div class="score-fill" id="origBar" style="width:0;background:#0f9b58"></div></div>
+</div>
+<div style="margin-bottom:12px">
+<div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Calidad de Escritura</span><span id="qualScore">--</span></div>
+<div class="score-bar"><div class="score-fill" id="qualBar" style="width:0;background:#3b82f6"></div></div>
+</div>
+<p style="font-size:.85rem;color:#6b7280;margin-top:16px;padding:12px;background:#f0fdf4;border-radius:8px">Este es un analisis parcial. <a href="https://ecdotica.com/producto/plan-autor-detector-de-plagio-y-analisis-de-manuscritos/" style="color:#0f9b58;font-weight:600">Suscribete para obtener informes completos en PDF</a> con deteccion de fuentes, analisis de estilo y recomendaciones.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Features -->
+<section class="features">
+<div class="container">
+<h2>Todo lo que Necesitas para tus Textos</h2>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon" style="background:#f0fdf4">&#128269;</div>
+<h3>Deteccion de Plagio</h3>
+<p>Compara tu texto contra millones de fuentes en internet y bases de datos academicas. Identifica coincidencias exactas y parafraseo.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#eff6ff">&#128202;</div>
+<h3>Analisis de Manuscrito</h3>
+<p>Evaluacion completa de estilo, coherencia narrativa, estructura y calidad literaria con inteligencia artificial avanzada.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#fef3c7">&#128196;</div>
+<h3>Informes PDF Profesionales</h3>
+<p>Reportes detallados que puedes presentar a editoriales, agentes literarios o instituciones academicas.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#fce7f3">&#9889;</div>
+<h3>Resultados en Minutos</h3>
+<p>Obtiene analisis completos en minutos, no en dias. Ideal para plazos de entrega ajustados.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#e0e7ff">&#127468;&#127463;</div>
+<h3>Especializado en Espanol</h3>
+<p>Disenado especificamente para textos en espanol. Entiende matices linguisticos y contexto cultural hispanoamericano.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#f0fdf4">&#128274;</div>
+<h3>Textos Confidenciales</h3>
+<p>Tus manuscritos nunca se almacenan ni se comparten. Privacidad total garantizada para tu trabajo creativo.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="precios">
+<div class="container">
+<h2>Planes y Precios</h2>
+<p class="pricing-sub">Elige el plan que mejor se adapte a tus necesidades. Todos incluyen periodo de prueba gratuito.</p>
+<div class="pricing-grid">
+<div class="price-card popular">
+<div class="badge">Mas Popular</div>
+<h3>Plan Autor</h3>
+<p style="color:#6b7280;font-size:.9rem">Ideal para escritores independientes</p>
+<div class="price">$9.99 <span>/mes</span></div>
+<div class="price-bs">Aprox. 69 Bs/mes</div>
+<ul>
+<li>5 analisis de manuscritos/mes</li>
+<li>10 verificaciones de plagio/mes</li>
+<li>Informes PDF descargables</li>
+<li>Soporte por email</li>
+</ul>
+<a href="https://ecdotica.com/producto/plan-autor-detector-de-plagio-y-analisis-de-manuscritos/" class="price-cta primary">Comenzar Prueba Gratis</a>
+<p class="trial-note">7 dias gratis, cancela cuando quieras</p>
+</div>
+<div class="price-card">
+<h3>Plan Editorial</h3>
+<p style="color:#6b7280;font-size:.9rem">Para editoriales y equipos de trabajo</p>
+<div class="price">$29.99 <span>/mes</span></div>
+<div class="price-bs">Aprox. 207 Bs/mes</div>
+<ul>
+<li>20 analisis de manuscritos/mes</li>
+<li>50 verificaciones de plagio/mes</li>
+<li>Informes PDF personalizados</li>
+<li>Soporte prioritario</li>
+<li>Multiples usuarios</li>
+</ul>
+<a href="https://ecdotica.com/producto/plan-editorial-detector-de-plagio-y-analisis-de-manuscritos/" class="price-cta secondary">Comenzar Prueba Gratis</a>
+<p class="trial-note">14 dias gratis, cancela cuando quieras</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Social Proof -->
+<section class="social-proof">
+<div class="container">
+<h2>Lo que Dicen Nuestros Usuarios</h2>
+<div class="testimonials">
+<div class="testimonial">
+<p>"El detector de plagio me salvo de un problema serio con citas que no habia atribuido correctamente. Imprescindible antes de enviar un manuscrito."</p>
+<div class="author">Carolina M.</div>
+<div class="role">Escritora, Buenos Aires</div>
+</div>
+<div class="testimonial">
+<p>"Usamos el Plan Editorial para revisar todos los manuscritos que recibimos. Ha agilizado nuestro proceso de evaluacion enormemente."</p>
+<div class="author">Roberto F.</div>
+<div class="role">Director Editorial, Mexico D.F.</div>
+</div>
+<div class="testimonial">
+<p>"Lo mejor es que funciona perfectamente en espanol. Otros detectores que probe fallaban con textos en nuestro idioma."</p>
+<div class="author">Ana L.</div>
+<div class="role">Profesora Universitaria, Cochabamba</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+<div class="container">
+<h2>Preguntas Frecuentes</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-q">Como funciona la deteccion de plagio?</div>
+<div class="faq-a">Nuestro sistema compara tu texto contra millones de paginas web, bases de datos academicas y publicaciones en linea usando algoritmos de IA avanzados. Detecta tanto coincidencias exactas como parafraseo inteligente.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Que incluye el analisis de manuscrito?</div>
+<div class="faq-a">El analisis evalua estructura narrativa, coherencia, estilo de escritura, uso del lenguaje, ritmo, desarrollo de personajes (en ficcion), y proporciona recomendaciones especificas para mejorar tu texto.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Puedo cancelar en cualquier momento?</div>
+<div class="faq-a">Si, puedes cancelar tu suscripcion en cualquier momento sin penalizacion. Durante el periodo de prueba gratuita no se te cobra nada.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Mis textos son confidenciales?</div>
+<div class="faq-a">Absolutamente. Tus textos se procesan de forma segura y se eliminan automaticamente despues del analisis. Nunca almacenamos, compartimos ni usamos tu contenido para ningun otro proposito.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Funciona con textos en espanol?</div>
+<div class="faq-a">Si, nuestra herramienta esta disenada especificamente para textos en espanol e ingles. El analisis entiende las particularidades del idioma espanol y sus variantes regionales.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q">Que metodos de pago aceptan?</div>
+<div class="faq-a">Aceptamos tarjetas de credito/debito (Visa, Mastercard, American Express) a traves de Stripe, y tambien PayPal. Los pagos son seguros y encriptados.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+<div class="container">
+<h2>Protege tu Trabajo. Mejora tu Escritura.</h2>
+<p>Unete a autores y editoriales que confian en Ecdotica para garantizar la calidad de sus publicaciones.</p>
+<a href="https://ecdotica.com/producto/plan-autor-detector-de-plagio-y-analisis-de-manuscritos/">Comenzar Prueba Gratis</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p style="margin-bottom:8px"><strong style="color:#fff">Ecdotica</strong> &mdash; Herramientas de IA para escritores y editoriales</p>
+<p>Con mas de 15 anos de experiencia en el mundo editorial &bull; <a href="https://ecdotica.com">ecdotica.com</a></p>
+<p style="margin-top:12px"><a href="https://ecdotica.com/tienda/">Libreria</a> &bull; <a href="https://ecdotica.com/noticias/">Noticias</a> &bull; <a href="mailto:marcelo.pazsoldan@editorialnuevomilenio.com">Contacto</a></p>
+</div>
+</footer>
+
+<script>
+// Character counter & demo button
+const ta = document.getElementById('demoText');
+const cc = document.getElementById('charCount');
+const btn = document.getElementById('demoBtn');
+ta.addEventListener('input', () => {
+const len = ta.value.length;
+if(len > 500) ta.value = ta.value.slice(0,500);
+cc.textContent = Math.min(len,500);
+btn.disabled = ta.value.length < 100;
+});
+
+// Demo analysis (simulated)
+btn.addEventListener('click', () => {
+btn.disabled = true;
+btn.textContent = 'Analizando...';
+setTimeout(() => {
+const r = document.getElementById('demoResult');
+r.classList.add('show');
+const orig = Math.floor(Math.random()*15)+82;
+const qual = Math.floor(Math.random()*20)+65;
+document.getElementById('origScore').textContent = orig+'%';
+document.getElementById('qualScore').textContent = qual+'/100';
+document.getElementById('origBar').style.width = orig+'%';
+document.getElementById('qualBar').style.width = qual+'%';
+btn.textContent = 'Analizar Texto';
+btn.disabled = false;
+}, 2000);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+q.addEventListener('click', () => {
+const item = q.parentElement;
+item.classList.toggle('open');
+});
+});
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "Ecdotica - Detector de Plagio y Analizador de Manuscritos",
+"description": "Herramientas profesionales de IA para detectar plagio y analizar manuscritos en espanol.",
+"url": "https://detector.ecdotica.com",
+"applicationCategory": "BusinessApplication",
+"operatingSystem": "Web",
+"offers": {
+"@type": "AggregateOffer",
+"lowPrice": "9.99",
+"highPrice": "29.99",
+"priceCurrency": "USD",
+"offerCount": "2"
+},
+"author": {
+"@type": "Organization",
+"name": "Ecdotica - Editorial Nuevo Milenio",
+"url": "https://ecdotica.com"
+}
+}
+</script>
+
+</body>
+</html>
