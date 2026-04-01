@@ -163,7 +163,7 @@ footer a:hover{color:#fff}
 <div class="score-bar"><div class="score-fill" id="origBar" style="width:0;background:#0f9b58"></div></div>
 </div>
 <div style="margin-bottom:12px">
-<div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Calidad de Escritura</span><span id="qualScore">--</span></div>
+<div style="display:flex;justify-content:space-between;font-size:.9rem"><span>Diversidad de Vocabulario</span><span id="qualScore">--</span></div>
 <div class="score-bar"><div class="score-fill" id="qualBar" style="width:0;background:#3b82f6"></div></div>
 </div>
 <p style="font-size:.85rem;color:#6b7280;margin-top:16px;padding:12px;background:#f0fdf4;border-radius:8px">Este es un analisis parcial. <a href="https://ecdotica.com/producto/plan-autor-detector-de-plagio-y-analisis-de-manuscritos/" style="color:#0f9b58;font-weight:600">Suscribete para obtener informes completos en PDF</a> con deteccion de fuentes, analisis de estilo y recomendaciones.</p>
@@ -352,9 +352,9 @@ btn.disabled = ta.value.length < 100;
         const r = document.getElementById('demoResult');
         r.classList.add('show');
                 const orig = data.readability ? Math.min(100, Math.max(0, Math.round(data.readability.score || data.readability.flesch_score || 85))) : 85;
-        const qual = data.quality_score ? (typeof data.quality_score === 'number' ? data.quality_score : (data.quality_score.overall || data.quality_score.score || 75)) : 75;
+        const qual = data.style_analysis ? Math.min(100, Math.round((data.style_analysis.type_token_ratio || data.style_analysis.vocabulary_diversity || 0.5) * 100)) : 50 ? (typeof data.quality_score === 'number' ? data.quality_score : (data.quality_score.overall || data.quality_score.score || 75)) : 75;
         document.getElementById('origScore').textContent = orig+'%';
-        document.getElementById('qualScore').textContent = qual+'/100';
+        document.getElementById('qualScore').textContent = qual+'%';
         document.getElementById('origBar').style.width = orig+'%';
         document.getElementById('qualBar').style.width = qual+'%';
       } catch(e) {
